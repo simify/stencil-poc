@@ -11,7 +11,9 @@ const JrTest = class {
     index.registerInstance(this, hostRef);
   }
   render() {
-    return (index.h("ul", { "data-test": this.options.foo }, this.data.map(item => (index.h("li", null, item)))));
+    var _a;
+    const test = ((_a = this.options) === null || _a === void 0 ? void 0 : _a.foo) || 'Yack';
+    return (index.h("div", null, index.h("h1", null, "Web Component"), index.h("ul", { "data-test": test }, (this.data || []).map(item => (index.h("li", null, item))))));
   }
 };
 JrTest.style = jrTestCss;

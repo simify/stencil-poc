@@ -16,12 +16,16 @@ export class JrTest {
   @Prop() options: IOptions;
 
   render() {
+    const test = this.options?.foo || 'Yack';
     return (
-      <ul data-test={this.options.foo}>
-        {this.data.map(item => (
-          <li>{item}</li>
-        ))}
-      </ul>
+      <div>
+        <h1>Web Component</h1>
+        <ul data-test={test}>
+          {(this.data || []).map(item => (
+            <li>{item}</li>
+            ))}
+        </ul>
+      </div>
     );
   }
 }

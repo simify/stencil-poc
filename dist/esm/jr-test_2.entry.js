@@ -7,7 +7,9 @@ const JrTest = class {
     registerInstance(this, hostRef);
   }
   render() {
-    return (h("ul", { "data-test": this.options.foo }, this.data.map(item => (h("li", null, item)))));
+    var _a;
+    const test = ((_a = this.options) === null || _a === void 0 ? void 0 : _a.foo) || 'Yack';
+    return (h("div", null, h("h1", null, "Web Component"), h("ul", { "data-test": test }, (this.data || []).map(item => (h("li", null, item))))));
   }
 };
 JrTest.style = jrTestCss;
